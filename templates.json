@@ -14,7 +14,7 @@
       "categories": [
         "dns-server"
       ],
-      "composefile": "/container-station/templates/compose/pi-hole/docker-compose.yaml",
+      "composefile": "https://static.myqnapcloud.com/container-station/templates/compose/pi-hole/docker-compose.yaml",
       "env": [
         {
           "name": "TZ",
@@ -80,18 +80,18 @@
     },
     {
       "type": 1,
-      "title": "Alpine",
-      "sub_title": "3.17",
+      "title": "Redis",
+      "sub_title": "3.18",
       "description": "A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!",
       "name": "docker-alpine",
-      "version": "3.17.0",
+      "version": "7.2.0",
       "logo": "/container-station/templates/icon/alpine.png",
       "location": "https://hub.docker.com/_/alpine",
       "platform": "linux",
       "categories": [
         "operating-system"
       ],
-      "image": "alpine:3.17.0",
+      "image": "redis:7.2-rc2-alpine3.18",
       "tty": true
     }
   ]
