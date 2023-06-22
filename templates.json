@@ -85,7 +85,7 @@
       "description": "A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!",
       "name": "docker-alpine",
       "version": "7.2.0",
-      "logo": "/container-station/templates/icon/alpine.png",
+      "logo": "https://redis.io/images/favicons/favicon-32x32.png",
       "location": "https://hub.docker.com/_/alpine",
       "platform": "linux",
       "categories": [
