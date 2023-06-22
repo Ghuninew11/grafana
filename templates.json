@@ -30,6 +30,12 @@
       "categories": ["operating-system"],
       "image": "postgres:16beta1-alpine3.18",
       "command": "redis redis-server --save 60 1 --loglevel warning",
+      "env": [
+        { "name": "POSTGRES_PASSWORD", "value": "bbpadmin" },
+        { "name": "POSTGRES_USER", "value": "admin1" },
+        { "name": "POSTGRES_DB", "value": "nextcloud" },
+        { "name": "POSTGRES_USER", "value": "admin1" }
+      ],
       "privileged": true,
       "tty": true
     }
