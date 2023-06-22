@@ -21,7 +21,7 @@
       "type": 1,
       "title": "Postgres",
       "sub_title": "postgres:16beta1-alpine3.18",
-      "description": "Redis is an open-source, networked, in-memory, key-value data store with optional durability.",
+      "description": "PostgreSQL, often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards-compliance.",
       "name": "docker-alpine",
       "version": "16.0.0",
       "logo": "https://raw.githubusercontent.com/Ghuninew11/grafana/main/postgresql.svg",
