@@ -13,7 +13,23 @@
       "platform": "linux",
       "categories": ["operating-system"],
       "image": "redis:7.2-rc2-alpine3.18",
-       "command": "redis redis-server --save 60 1 --loglevel warning",
+      "command": "redis redis-server --save 60 1 --loglevel warning",
+      "privileged": true,
+      "tty": true
+    },
+    {
+      "type": 1,
+      "title": "Postgres",
+      "sub_title": "postgres:16beta1-alpine3.18",
+      "description": "Redis is an open-source, networked, in-memory, key-value data store with optional durability.",
+      "name": "docker-alpine",
+      "version": "16.0.0",
+      "logo": "https://en.wikipedia.org/wiki/PostgreSQL#/media/File:Postgresql_elephant.svg",
+      "location": "https://hub.docker.com/_/alpine",
+      "platform": "linux",
+      "categories": ["operating-system"],
+      "image": "postgres:16beta1-alpine3.18",
+      "command": "redis redis-server --save 60 1 --loglevel warning",
       "privileged": true,
       "tty": true
     }
