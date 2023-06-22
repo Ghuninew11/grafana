@@ -2,95 +2,16 @@
   "version": "2",
   "templates": [
     {
-      "type": 3,
-      "title": "Pi-hole",
-      "sub_title": "5.14",
-      "description": "A network-wide ad blocker DNS sinkhole that protects your devices from unwanted content.",
-      "name": "compose-pi-hole",
-      "version": "2022.12.1",
-      "logo": "/container-station/templates/icon/pihole.png",
-      "location": "https://hub.docker.com/r/pihole/pihole",
-      "platform": "linux",
-      "categories": [
-        "dns-server"
-      ],
-      "composefile": "https://static.myqnapcloud.com/container-station/templates/compose/pi-hole/docker-compose.yaml",
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Time zone",
-          "default": "Asia/Taipei"
-        },
-        {
-          "name": "WEB_PASSWORD",
-          "label": "Web password",
-          "password": true,
-          "description": "Set a secure password for web."
-        }
-      ],
-      "network_setting": {
-        "mode": "bridge",
-        "static_ip": true
-      },
-      "default_web_port": {
-        "service": "pihole",
-        "container_port": 80
-      },
-      "support_os": ["QTS"]
-    },
-    {
-      "type": 3,
-      "title": "Heimdall Application Dashboard",
-      "sub_title": "2.5.5",
-      "description": "Heimdall Application Dashboard is a dashboard for all your web applications. It doesn't need to be limited to applications though, you can add links to anything you like.",
-      "name": "compose-heimdall",
-      "version": "2.5.5",
-      "logo": "https://static.myqnapcloud.com//container-station/templates/icon/heimdall.png",
-      "location": "https://hub.docker.com/r/linuxserver/heimdall",
-      "platform": "linux",
-      "categories": [
-        "utilities"
-      ],
-      "composefile": "https://static.myqnapcloud.com//container-station/templates/compose/heimdall/docker-compose.yaml",
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Timezone",
-          "default": "Asia/Taipei"
-        },
-        {
-          "name": "HTTP_PORT",
-          "label": "HTTP port (optional)",
-          "description": "HTTP web port for Heimdall Application Dashboard.",
-          "port": true
-        },
-        {
-          "name": "HTTPS_PORT",
-          "label": "HTTPS port (optional)",
-          "description": "HTTPS web port for Heimdall Application Dashboard.",
-          "port": true
-        }
-      ],
-      "default_web_port": {
-          "service": "heimdall",
-          "container_port": 80
-      },
-      "notice": "Ensure to enter different numbers for HTTP port and HTTPS port.",
-      "support_os": ["QTS"]
-    },
-    {
       "type": 1,
       "title": "Redis",
-      "sub_title": "3.18",
+      "sub_title": "7.2-rc2-alpine3.18",
       "description": "A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!",
       "name": "docker-alpine",
       "version": "7.2.0",
       "logo": "https://redis.io/images/favicons/favicon-32x32.png",
       "location": "https://hub.docker.com/_/alpine",
       "platform": "linux",
-      "categories": [
-        "operating-system"
-      ],
+      "categories": ["operating-system"],
       "image": "redis:7.2-rc2-alpine3.18",
       "tty": true
     }
