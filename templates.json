@@ -1,0 +1,295 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "type": 3,
+      "title": "Pi-hole",
+      "sub_title": "5.14",
+      "description": "A network-wide ad blocker DNS sinkhole that protects your devices from unwanted content.",
+      "name": "compose-pi-hole",
+      "version": "2022.12.1",
+      "logo": "/container-station/templates/icon/pihole.png",
+      "location": "https://hub.docker.com/r/pihole/pihole",
+      "platform": "linux",
+      "categories": [
+        "dns-server"
+      ],
+      "composefile": "/container-station/templates/compose/pi-hole/docker-compose.yaml",
+      "env": [
+        {
+          "name": "TZ",
+          "label": "Time zone",
+          "default": "Asia/Taipei"
+        },
+        {
+          "name": "WEB_PASSWORD",
+          "label": "Web password",
+          "password": true,
+          "description": "Set a secure password for web."
+        }
+      ],
+      "network_setting": {
+        "mode": "bridge",
+        "static_ip": true
+      },
+      "default_web_port": {
+        "service": "pihole",
+        "container_port": 80
+      },
+      "support_os": ["QTS"]
+    },
+    {
+      "type": 3,
+      "title": "Heimdall Application Dashboard",
+      "sub_title": "2.5.5",
+      "description": "Heimdall Application Dashboard is a dashboard for all your web applications. It doesn't need to be limited to applications though, you can add links to anything you like.",
+      "name": "compose-heimdall",
+      "version": "2.5.5",
+      "logo": "/container-station/templates/icon/heimdall.png",
+      "location": "https://hub.docker.com/r/linuxserver/heimdall",
+      "platform": "linux",
+      "categories": [
+        "utilities"
+      ],
+      "composefile": "/container-station/templates/compose/heimdall/docker-compose.yaml",
+      "env": [
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "Asia/Taipei"
+        },
+        {
+          "name": "HTTP_PORT",
+          "label": "HTTP port (optional)",
+          "description": "HTTP web port for Heimdall Application Dashboard.",
+          "port": true
+        },
+        {
+          "name": "HTTPS_PORT",
+          "label": "HTTPS port (optional)",
+          "description": "HTTPS web port for Heimdall Application Dashboard.",
+          "port": true
+        }
+      ],
+      "default_web_port": {
+          "service": "heimdall",
+          "container_port": 80
+      },
+      "notice": "Ensure to enter different numbers for HTTP port and HTTPS port.",
+      "support_os": ["QTS"]
+    },
+    {
+      "type": 1,
+      "title": "Alpine",
+      "sub_title": "3.17",
+      "description": "A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!",
+      "name": "docker-alpine",
+      "version": "3.17.0",
+      "logo": "/container-station/templates/icon/alpine.png",
+      "location": "https://hub.docker.com/_/alpine",
+      "platform": "linux",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "alpine:3.17.0",
+      "tty": true
+    },
+    {
+      "type": 1,
+      "title": "BusyBox",
+      "sub_title": "1.34",
+      "description": "BusyBox combines tiny versions of many common UNIX utilities into a single small executable. It provides replacements for most of the utilities you usually find in GNU fileutils, shellutils, etc.",
+      "name": "docker-busybox",
+      "version": "1.34.1",
+      "logo": "/container-station/templates/icon/busybox.png",
+      "location": "https://hub.docker.com/_/busybox",
+      "platform": "linux",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "busybox:1.34.1",
+      "tty": true
+    },
+    {
+      "type": 1,
+      "title": "Ubuntu Desktop with noVNC",
+      "sub_title": "focal",
+      "description": "Ubuntu operating system with HTML5 VNC interface to access Ubuntu desktop environment.",
+      "name": "docker-ubuntu-desktop-novnc",
+      "version": "focal",
+      "logo": "/container-station/templates/icon/ubuntu.png",
+      "location": "https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc",
+      "platform": "linux/amd64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "dorowu/ubuntu-desktop-lxde-vnc:focal"
+    },
+    {
+      "type": 1,
+      "title": "Ubuntu Desktop with noVNC",
+      "sub_title": "focal",
+      "description": "Ubuntu operating system with HTML5 VNC interface to access Ubuntu desktop environment.",
+      "name": "docker-ubuntu-desktop-novnc",
+      "version": "focal-arm64",
+      "logo": "/container-station/templates/icon/ubuntu.png",
+      "location": "https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc",
+      "platform": "linux/arm64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "dorowu/ubuntu-desktop-lxde-vnc:focal-arm64"
+    },
+    {
+      "type": 1,
+      "title": "Ubuntu",
+      "sub_title": "22.04",
+      "description": "Ubuntu is a Debian-based Linux operating system based on free software.",
+      "name": "docker-ubuntu",
+      "version": "jammy-20221130",
+      "logo": "/container-station/templates/icon/ubuntu.png",
+      "location": "https://hub.docker.com/_/ubuntu",
+      "platform": "linux",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "ubuntu:jammy-20221130",
+      "tty": true
+    },
+    {
+      "type": 1,
+      "title": "Registry",
+      "sub_title": "2.8",
+      "description": "The Docker Registry 2.0 implementation for storing and distributing Docker images.",
+      "name": "docker-registry",
+      "version": "2.8.1",
+      "logo": "/container-station/templates/icon/registry.png",
+      "location": "https://hub.docker.com/_/registry",
+      "platform": "linux",
+      "categories": [
+        "docker"
+      ],
+      "image": "registry:2.8.1"
+    },
+    {
+      "type": 10,
+      "title": "CentOS",
+      "sub_title": "9",
+      "description": "The official build of CentOS.",
+      "name": "lxd-centos",
+      "version": "9-Stream",
+      "logo": "/container-station/templates/icon/centos.png",
+      "platform": "linux/amd64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "centos:9-Stream",
+      "registry": "images"
+    },
+    {
+      "type": 10,
+      "title": "CentOS",
+      "sub_title": "9",
+      "description": "The official build of CentOS.",
+      "name": "lxd-centos",
+      "version": "9-Stream",
+      "logo": "/container-station/templates/icon/centos.png",
+      "platform": "linux/arm64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "centos:9-Stream",
+      "registry": "images"
+    },
+    {
+      "type": 10,
+      "title": "Debian",
+      "sub_title": "11",
+      "description": "Debian is a Linux distribution that's composed entirely of free and open-source software.",
+      "name": "lxd-debian",
+      "version": "bullseye",
+      "logo": "/container-station/templates/icon/debian.png",
+      "platform": "linux/amd64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "debian:bullseye",
+      "registry": "images"
+    },
+    {
+      "type": 10,
+      "title": "Debian",
+      "sub_title": "11",
+      "description": "Debian is a Linux distribution that's composed entirely of free and open-source software.",
+      "name": "lxd-debian",
+      "version": "bullseye",
+      "logo": "/container-station/templates/icon/debian.png",
+      "platform": "linux/arm64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "debian:bullseye",
+      "registry": "images"
+    },
+    {
+      "type": 10,
+      "title": "Ubuntu",
+      "sub_title": "22.04",
+      "description": "Ubuntu is a Debian-based Linux operating system based on free software.",
+      "name": "lxd-ubuntu",
+      "version": "jammy",
+      "logo": "/container-station/templates/icon/ubuntu.png",
+      "platform": "linux/amd64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "ubuntu:jammy",
+      "registry": "images"
+    },
+    {
+      "type": 10,
+      "title": "Ubuntu",
+      "sub_title": "22.04",
+      "description": "Ubuntu is a Debian-based Linux operating system based on free software.",
+      "name": "lxd-ubuntu",
+      "version": "jammy",
+      "logo": "/container-station/templates/icon/ubuntu.png",
+      "platform": "linux/arm64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "ubuntu:jammy",
+      "registry": "images"
+    },
+    {
+      "type": 10,
+      "title": "Fedora",
+      "sub_title": "37",
+      "description": "Official builds of Fedora.",
+      "name": "lxd-fedora",
+      "version": "37",
+      "logo": "/container-station/templates/icon/fedora.png",
+      "platform": "linux/amd64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "fedora:37",
+      "registry": "images"
+    },
+    {
+      "type": 10,
+      "title": "Fedora",
+      "sub_title": "37",
+      "description": "Official builds of Fedora.",
+      "name": "lxd-fedora",
+      "version": "37",
+      "logo": "/container-station/templates/icon/fedora.png",
+      "platform": "linux/arm64",
+      "categories": [
+        "operating-system"
+      ],
+      "image": "fedora:37",
+      "registry": "images"
+    }
+  ]
+}
