@@ -13,7 +13,8 @@
       "platform": "linux",
       "categories": ["operating-system"],
       "image": "redis:7.2-rc2-alpine3.18",
-      "command": "redis redis-server --save 60 1 --loglevel warning",
+      // "command": "redis redis-server --save 60 1 --loglevel warning",
+      "privileged": true,
       "tty": true
     }
   ]
