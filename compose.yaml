@@ -3,34 +3,37 @@ services:
     container_name: prometheus
     image: prom/prometheus:latest
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prometheus_data:/prometheus
-    command:
-      - --config.file=/etc/prometheus/prometheus.yml
-      - --storage.tsdb.path=/prometheus
-      - --storage.tsdb.retention=${PROMETHEUS_RETENTION:-24h}
+      - /share/vm/docker/grafana/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /share/vm/docker/grafana/prometheus_data:/prometheus
     restart: always
-    networks:
-      - monitor-net
+    privileged: true
+    environment:
+      TZ: Asia/Bangkok
+    network_mode: host
 
   node-exporter:
-    image: prom/node-exporter:latest
-    container_name: exporter
-    networks:
-      - monitor-net
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    privileged: true
+    environment:
+      TZ: Asia/Bangkok
+    command:
+      - "--path.rootfs=/host"
+    network_mode: host
+    pid: host
+    restart: unless-stopped
+    volumes:
+      - "/:/host:ro,rslave"
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana-enterprise
     container_name: grafana
     volumes:
-      - ./grafana_data:/var/lib/grafana
-    depends_on:
-      - prometheus
-    ports:
-      - 3000:3000
-    networks:
-      - monitor-net
-
-networks:
-  monitor-net:
-    driver: bridge
+      - /share/vm/docker/grafana/grafana_data:/var/lib/grafana
+    shm_size: 256mb
+    privileged: true
+    environment:
+      TZ: Asia/Bangkok
+      GF_FEATURE_TOGGLES_ENABLE: publicDashboards
+    network_mode: host
+    restart: unless-stopped
